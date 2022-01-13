@@ -8,7 +8,14 @@ module.exports = {
   core: {
     builder: "storybook-builder-vite",
   },
-  features: {
-    storyStoreV7: true,
+  // features: {
+  //   storyStoreV7: true,
+  // },
+  viteFinal: async (config) => {
+    config.plugins = [
+      ...config.plugins,
+      require("vite-tsconfig-paths").default(),
+    ];
+    return config;
   },
 };
